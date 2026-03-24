@@ -1,0 +1,4 @@
+Key,Type,Desc,Chinese,English
+None,Text,,无,None
+Test,Text,,中文,English
+TestFormat,Text,,中文填充{0},EnglishFormat{0}

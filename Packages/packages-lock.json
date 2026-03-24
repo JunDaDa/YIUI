@@ -249,6 +249,12 @@
         "cn.etetet.core": "1.0.0"
       }
     },
+    "cn.etetet.yiuilocalizationpro": {
+      "version": "file:cn.etetet.yiuilocalizationpro",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
+    },
     "cn.etetet.yiuiloopscrollrectasync": {
       "version": "file:cn.etetet.yiuiloopscrollrectasync",
       "depth": 0,

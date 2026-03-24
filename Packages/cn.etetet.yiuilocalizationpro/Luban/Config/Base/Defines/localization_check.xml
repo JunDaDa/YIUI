@@ -1,0 +1,10 @@
+
+<module name="cn.etetet.yiuilocalizationpro" >
+
+    <bean name="LocalizationCheckConfig" >
+      <var name="key" type="string"/>
+    </bean>
+
+    <table name="LocalizationCheckConfigCategory" value="LocalizationCheckConfig" input="..\..\..\..\cn.etetet.yiuilocalizationpro\Luban\Config\Datas\*@LocalizationCheck.json" output="LocalizationCheckConfigCategory"/> 
+
+</module>

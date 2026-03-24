@@ -1,0 +1,22 @@
+{
+  "name": "cn.etetet.yiuilocalizationpro",
+  "displayName": "ET.YIUI.LocalizationPro",
+  "version": "3.0.5",
+  "unity": "2022.3",
+  "category": "UI/YIUI",
+  "description": "YIUI 多语言 >>> 文档: https://lib9kmxvq7k.feishu.cn/wiki/YMB7wqY2jiIN94kZJ1qcNIStn1c",
+  "author": {
+    "name": "YIYI",
+    "url": "https://github.com/LiShengYang-yiyi/YIUI/tree/YIUI-ET9.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ET-Packages/cn.etetet.yiuilocalizationpro"
+  },
+  "relatedPackages": {},
+  "dependencies": {},
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/@ET-Packages"
+  },
+  "_fingerprint": "b422c3043e9e836e9e5afe03f7ec7b0bf3e1cc96"
+}
