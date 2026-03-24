@@ -1,0 +1,11 @@
+
+<module name="cn.etetet.yiuinumericconfig" >
+
+    <bean name="NumericValueAffectConfig" >
+      <var name="id" type="ENumericType"/>
+      <var name="affects" type="(list#sep=,),ENumericType"/>
+    </bean>
+
+    <table name="NumericValueAffectConfigCategory" value="NumericValueAffectConfig" input="..\..\..\..\cn.etetet.yiuinumericconfig\Luban\Config\Datas\*@NumericValueAffect.json" output="NumericValueAffectConfigCategory"/> 
+
+</module>

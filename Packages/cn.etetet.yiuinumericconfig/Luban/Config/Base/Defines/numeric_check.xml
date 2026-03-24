@@ -1,0 +1,17 @@
+
+<module name="cn.etetet.yiuinumericconfig" >
+
+    <bean name="NumericValueCheckConfig" >
+      <var name="id" type="ENumericType"/>
+      <var name="check" type="ENumericValueType"/>
+      <var name="alias" type="string"/>
+      <var name="desc" type="string"/>
+      <var name="not_grow" type="bool"/>
+      <var name="need_save" type="bool"/>
+      <var name="notice_type" type="ENumericNoticeType"/>
+      <var name="formula_id" type="int#ref=NumericFormulaConfigCategory"/>
+    </bean>
+
+    <table name="NumericValueCheckConfigCategory" value="NumericValueCheckConfig" input="..\..\..\..\cn.etetet.yiuinumericconfig\Luban\Config\Datas\*@NumericValueCheck.json" output="NumericValueCheckConfigCategory"/> 
+
+</module>

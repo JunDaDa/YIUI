@@ -1,0 +1,17 @@
+[
+  {
+    "id": 200001,
+    "reset": {
+      "$type": "NumericValueLimitNone"
+    },
+    "min": {
+      "$type": "NumericValueLimitNumber",
+      "value": 0
+    },
+    "max": {
+      "$type": "NumericValueLimitNumeric",
+      "value": 200002
+    },
+    "priority": 0
+  }
+]

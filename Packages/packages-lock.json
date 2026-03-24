@@ -206,6 +206,12 @@
         "cn.etetet.yiuiframework": "3.0.0"
       }
     },
+    "cn.etetet.yiuicodeanalysis": {
+      "version": "file:cn.etetet.yiuicodeanalysis",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
+    },
     "cn.etetet.yiuieffect": {
       "version": "file:cn.etetet.yiuieffect",
       "depth": 0,
@@ -261,6 +267,20 @@
         "cn.etetet.core": "1.0.0",
         "cn.etetet.loader": "1.0.0"
       }
+    },
+    "cn.etetet.yiuinumeric": {
+      "version": "file:cn.etetet.yiuinumeric",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {
+        "cn.etetet.yiuicodeanalysis": "0.0.1"
+      }
+    },
+    "cn.etetet.yiuinumericconfig": {
+      "version": "file:cn.etetet.yiuinumericconfig",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
     },
     "cn.etetet.yiuireddot": {
       "version": "file:cn.etetet.yiuireddot",
