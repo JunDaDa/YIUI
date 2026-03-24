@@ -19,24 +19,12 @@ MonoBehaviour:
     Version: 
   - Name: cn.etetet.yooassets
     Version: 2.3.6
-  - Name: cn.etetet.yiuiyooassets
-    Version: 3.1.0
-  - Name: cn.etetet.yiuitips
-    Version: 3.0.3
   - Name: cn.etetet.yiuireddot
     Version: 3.0.0
-  - Name: cn.etetet.yiuiloopscrollrectasync
-    Version: 3.0.3
   - Name: cn.etetet.yiuiinvoke
     Version: 4.0.3
-  - Name: cn.etetet.yiuigm
-    Version: 3.0.4
-  - Name: cn.etetet.yiuiframework
-    Version: 3.1.4
   - Name: cn.etetet.yiuieffect
     Version: 3.0.0
-  - Name: cn.etetet.yiui3ddisplay
-    Version: 3.1.0
   - Name: cn.etetet.yiui
     Version: 
   - Name: cn.etetet.watcher
@@ -45,13 +33,9 @@ MonoBehaviour:
     Version: 3.0.0
   - Name: cn.etetet.ui
     Version: 3.0.0
-  - Name: cn.etetet.statesync
-    Version: 3.0.12
   - Name: cn.etetet.startconfig
     Version: 3.0.0
   - Name: cn.etetet.sourcegenerator
-    Version: 3.0.1
-  - Name: cn.etetet.router
     Version: 3.0.1
   - Name: cn.etetet.referencecollector
     Version: 3.0.0
@@ -98,6 +82,8 @@ MonoBehaviour:
   - Name: com.unity.modules.video
     Version: 1.0.0
   - Name: com.unity.modules.vehicles
+    Version: 1.0.0
+  - Name: com.unity.modules.vectorgraphics
     Version: 1.0.0
   - Name: com.unity.modules.unitywebrequestwww
     Version: 1.0.0
@@ -149,22 +135,44 @@ MonoBehaviour:
     Version: 1.0.0
   - Name: com.unity.modules.ai
     Version: 1.0.0
+  - Name: com.unity.modules.adaptiveperformance
+    Version: 1.0.0
+  - Name: com.unity.modules.accessibility
+    Version: 1.0.0
   - Name: com.unity.ugui
-    Version: 3.0.0-exp.4
+    Version: 2.0.0
   - Name: com.unity.timeline
-    Version: 1.8.11
-  - Name: com.unity.textmeshpro
-    Version: 4.0.0-pre.2
+    Version: 1.8.12
   - Name: com.unity.render-pipelines.universal
-    Version: 14.0.9
+    Version: 17.3.0
+  - Name: com.unity.multiplayer.center
+    Version: 1.0.1
   - Name: com.unity.ide.visualstudio
     Version: 2.0.27
   - Name: com.unity.ide.rider
     Version: 3.0.39
+  - Name: com.unity.editorcoroutines
+    Version: 1.0.1
   - Name: com.unity.ai.navigation
-    Version: 2.0.11
+    Version: 2.0.12
+  - Name: cn.etetet.yiuiyooassets
+    Version: 3.1.0
+  - Name: cn.etetet.yiuitips
+    Version: 3.0.3
   - Name: cn.etetet.yiuistatesync
     Version: 3.0.2
+  - Name: cn.etetet.yiuiloopscrollrectasync
+    Version: 3.0.3
+  - Name: cn.etetet.yiuigm
+    Version: 3.0.4
+  - Name: cn.etetet.yiuiframework
+    Version: 3.1.4
+  - Name: cn.etetet.yiui3ddisplay
+    Version: 3.1.0
+  - Name: cn.etetet.statesync
+    Version: 3.0.12
+  - Name: cn.etetet.router
+    Version: 3.0.1
   BanPackageInfo: []
-  LastUpdateTime: 1772113803
+  LastUpdateTime: 1774369522
   UpdateInterval: 3600

@@ -1,0 +1,21 @@
+<module name="cn.etetet.yiuilubangen" >
+
+    <bean name="f3" valueType="1" sep=",">
+        <var name="x" type="float"/>
+        <var name="y" type="float"/>
+        <var name="z" type="float"/>
+        <mapper target="client" codeTarget="cs-bin,cs-dotnet-json,cs-newtonsoft-json">
+            <option name="type" value="Unity.Mathematics.float3"/>
+            <option name="constructor" value="ExternalTypeUtil.UnityMathematicsFloat3"/>
+        </mapper>
+        <mapper target="server" codeTarget="cs-bin,cs-dotnet-json,cs-newtonsoft-json">
+            <option name="type" value="Unity.Mathematics.float3"/>
+            <option name="constructor" value="ExternalTypeUtil.UnityMathematicsFloat3"/>
+        </mapper>
+        <mapper target="all" codeTarget="cs-bin,cs-dotnet-json,cs-newtonsoft-json">
+            <option name="type" value="Unity.Mathematics.float3"/>
+            <option name="constructor" value="ExternalTypeUtil.UnityMathematicsFloat3"/>
+        </mapper>
+    </bean>
+
+</module>

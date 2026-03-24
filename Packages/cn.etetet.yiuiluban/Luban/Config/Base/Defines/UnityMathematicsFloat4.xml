@@ -1,0 +1,22 @@
+<module name="cn.etetet.yiuilubangen" >
+
+    <bean name="f4" valueType="1" sep=",">
+        <var name="x" type="float"/>
+        <var name="y" type="float"/>
+        <var name="z" type="float"/>
+        <var name="w" type="float"/>
+        <mapper target="client" codeTarget="cs-bin,cs-dotnet-json,cs-newtonsoft-json">
+            <option name="type" value="Unity.Mathematics.float4"/>
+            <option name="constructor" value="ExternalTypeUtil.UnityMathematicsFloat4"/>
+        </mapper>
+        <mapper target="server" codeTarget="cs-bin,cs-dotnet-json,cs-newtonsoft-json">
+            <option name="type" value="Unity.Mathematics.float4"/>
+            <option name="constructor" value="ExternalTypeUtil.UnityMathematicsFloat4"/>
+        </mapper>
+        <mapper target="all" codeTarget="cs-bin,cs-dotnet-json,cs-newtonsoft-json">
+            <option name="type" value="Unity.Mathematics.float4"/>
+            <option name="constructor" value="ExternalTypeUtil.UnityMathematicsFloat4"/>
+        </mapper>
+    </bean>
+
+</module>

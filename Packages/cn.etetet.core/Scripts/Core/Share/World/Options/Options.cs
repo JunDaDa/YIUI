@@ -9,7 +9,7 @@ namespace ET
         [Option("SceneName", Required = false, Default = "Server", HelpText = "define in SceneType class")]
         public string SceneName { get; set; }
 
-        [Option("StartConfig", Required = false, Default = "StartConfig/Localhost")]
+        [Option("StartConfig", Required = false, Default = "Localhost")]
         public string StartConfig { get; set; }
 
         [Option("Process", Required = false, Default = 1)]

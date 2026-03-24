@@ -38,7 +38,7 @@ namespace ET.Client
                     case RawFileHandle handle:
                         handle.Release();
                         break;
-                    case SceneHandle handle:
+                    case YooAsset.SceneHandle handle:
                         handle.UnloadAsync();
                         break;
                 }

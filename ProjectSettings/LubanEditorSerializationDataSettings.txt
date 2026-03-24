@@ -1,0 +1,262 @@
+{
+    "$id": 0,
+    "$type": "0|YIUILuban.Editor.LubanEditorSerializationData, ET.YIUI.LubanTools.Editor",
+    "RootShowAllConfig": true,
+    "m_MinWindowSize": {
+        "$type": "1|UnityEngine.Vector2, UnityEngine.CoreModule",
+        1000,
+        600
+    },
+    "m_MenuWidth": 400,
+    "InvalidFileNameRegex": "^[\\.\\\\\\\\/~#\\$%]",
+    "ValidFileSuffixRegex": "\\.(xlsx|xlsm|xml|json|txt)$",
+    "m_ShowLubanConfigClass": false,
+    "LubanEditorPackageSettings": {
+        "$id": 1,
+        "$type": "2|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[YIUILuban.Editor.LubanPackageEditorData, ET.YIUI.LubanTools.Editor]], mscorlib",
+        "comparer": {
+            "$id": 2,
+            "$type": "3|System.Collections.Generic.GenericEqualityComparer`1[[System.String, mscorlib]], mscorlib"
+        },
+        "$rlength": 2,
+        "$rcontent": [
+            {
+                "$k": "yiuiluban",
+                "$v": {
+                    "$id": 3,
+                    "$type": "4|YIUILuban.Editor.LubanPackageEditorData, ET.YIUI.LubanTools.Editor",
+                    "PackageName": "yiuiluban",
+                    "Alias": null,
+                    "Desc": null
+                }
+            },
+            {
+                "$k": "yiuilubangen",
+                "$v": {
+                    "$id": 4,
+                    "$type": 4,
+                    "PackageName": "yiuilubangen",
+                    "Alias": null,
+                    "Desc": null
+                }
+            }
+        ]
+    },
+    "LubanEditorConfigSettings": {
+        "$id": 5,
+        "$type": "5|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[YIUILuban.Editor.LubanConfigEditorData, ET.YIUI.LubanTools.Editor]], mscorlib]], mscorlib",
+        "comparer": $iref:2,
+        "$rlength": 2,
+        "$rcontent": [
+            {
+                "$k": "yiuilubangen",
+                "$v": {
+                    "$id": 6,
+                    "$type": "6|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[YIUILuban.Editor.LubanConfigEditorData, ET.YIUI.LubanTools.Editor]], mscorlib",
+                    "comparer": $iref:2,
+                    "$rlength": 10,
+                    "$rcontent": [
+                        {
+                            "$k": "Packages/cn.etetet.yiuilubangen/Luban/Config\\Datas\\AI.xlsx",
+                            "$v": {
+                                "$id": 7,
+                                "$type": "7|YIUILuban.Editor.LubanConfigEditorData, ET.YIUI.LubanTools.Editor",
+                                "Name": "AI.xlsx",
+                                "Alias": null,
+                                "Path": "Packages/cn.etetet.yiuilubangen/Luban/Config\\Datas\\AI.xlsx",
+                                "Desc": null
+                            }
+                        },
+                        {
+                            "$k": "Packages/cn.etetet.yiuilubangen/Luban/Config\\Datas\\Unit.xlsx",
+                            "$v": {
+                                "$id": 8,
+                                "$type": 7,
+                                "Name": "Unit.xlsx",
+                                "Alias": null,
+                                "Path": "Packages/cn.etetet.yiuilubangen/Luban/Config\\Datas\\Unit.xlsx",
+                                "Desc": null
+                            }
+                        },
+                        {
+                            "$k": "Packages/cn.etetet.yiuilubangen/Luban/Localhost\\Datas\\StartMachine.xlsx",
+                            "$v": {
+                                "$id": 9,
+                                "$type": 7,
+                                "Name": "StartMachine.xlsx",
+                                "Alias": null,
+                                "Path": "Packages/cn.etetet.yiuilubangen/Luban/Localhost\\Datas\\StartMachine.xlsx",
+                                "Desc": null
+                            }
+                        },
+                        {
+                            "$k": "Packages/cn.etetet.yiuilubangen/Luban/Localhost\\Datas\\StartProcess.xlsx",
+                            "$v": {
+                                "$id": 10,
+                                "$type": 7,
+                                "Name": "StartProcess.xlsx",
+                                "Alias": null,
+                                "Path": "Packages/cn.etetet.yiuilubangen/Luban/Localhost\\Datas\\StartProcess.xlsx",
+                                "Desc": null
+                            }
+                        },
+                        {
+                            "$k": "Packages/cn.etetet.yiuilubangen/Luban/Localhost\\Datas\\StartScene.xlsx",
+                            "$v": {
+                                "$id": 11,
+                                "$type": 7,
+                                "Name": "StartScene.xlsx",
+                                "Alias": null,
+                                "Path": "Packages/cn.etetet.yiuilubangen/Luban/Localhost\\Datas\\StartScene.xlsx",
+                                "Desc": null
+                            }
+                        },
+                        {
+                            "$k": "Packages/cn.etetet.yiuilubangen/Luban/Localhost\\Datas\\StartZone.xlsx",
+                            "$v": {
+                                "$id": 12,
+                                "$type": 7,
+                                "Name": "StartZone.xlsx",
+                                "Alias": null,
+                                "Path": "Packages/cn.etetet.yiuilubangen/Luban/Localhost\\Datas\\StartZone.xlsx",
+                                "Desc": null
+                            }
+                        },
+                        {
+                            "$k": "Packages/cn.etetet.yiuilubangen/Luban/Release\\Datas\\StartMachine.xlsx",
+                            "$v": {
+                                "$id": 13,
+                                "$type": 7,
+                                "Name": "StartMachine.xlsx",
+                                "Alias": null,
+                                "Path": "Packages/cn.etetet.yiuilubangen/Luban/Release\\Datas\\StartMachine.xlsx",
+                                "Desc": null
+                            }
+                        },
+                        {
+                            "$k": "Packages/cn.etetet.yiuilubangen/Luban/Release\\Datas\\StartProcess.xlsx",
+                            "$v": {
+                                "$id": 14,
+                                "$type": 7,
+                                "Name": "StartProcess.xlsx",
+                                "Alias": null,
+                                "Path": "Packages/cn.etetet.yiuilubangen/Luban/Release\\Datas\\StartProcess.xlsx",
+                                "Desc": null
+                            }
+                        },
+                        {
+                            "$k": "Packages/cn.etetet.yiuilubangen/Luban/Release\\Datas\\StartScene.xlsx",
+                            "$v": {
+                                "$id": 15,
+                                "$type": 7,
+                                "Name": "StartScene.xlsx",
+                                "Alias": null,
+                                "Path": "Packages/cn.etetet.yiuilubangen/Luban/Release\\Datas\\StartScene.xlsx",
+                                "Desc": null
+                            }
+                        },
+                        {
+                            "$k": "Packages/cn.etetet.yiuilubangen/Luban/Release\\Datas\\StartZone.xlsx",
+                            "$v": {
+                                "$id": 16,
+                                "$type": 7,
+                                "Name": "StartZone.xlsx",
+                                "Alias": null,
+                                "Path": "Packages/cn.etetet.yiuilubangen/Luban/Release\\Datas\\StartZone.xlsx",
+                                "Desc": null
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "$k": "yiuiluban",
+                "$v": {
+                    "$id": 17,
+                    "$type": 6,
+                    "comparer": $iref:2,
+                    "$rlength": 7,
+                    "$rcontent": [
+                        {
+                            "$k": "Packages/cn.etetet.yiuiluban/Luban/Config/Base\\__beans__.xlsx",
+                            "$v": {
+                                "$id": 18,
+                                "$type": 7,
+                                "Name": "__beans__.xlsx",
+                                "Alias": null,
+                                "Path": "Packages/cn.etetet.yiuiluban/Luban/Config/Base\\__beans__.xlsx",
+                                "Desc": null
+                            }
+                        },
+                        {
+                            "$k": "Packages/cn.etetet.yiuiluban/Luban/Config/Base\\__enums__.xlsx",
+                            "$v": {
+                                "$id": 19,
+                                "$type": 7,
+                                "Name": "__enums__.xlsx",
+                                "Alias": null,
+                                "Path": "Packages/cn.etetet.yiuiluban/Luban/Config/Base\\__enums__.xlsx",
+                                "Desc": null
+                            }
+                        },
+                        {
+                            "$k": "Packages/cn.etetet.yiuiluban/Luban/Config/Base\\__tables__.xlsx",
+                            "$v": {
+                                "$id": 20,
+                                "$type": 7,
+                                "Name": "__tables__.xlsx",
+                                "Alias": null,
+                                "Path": "Packages/cn.etetet.yiuiluban/Luban/Config/Base\\__tables__.xlsx",
+                                "Desc": null
+                            }
+                        },
+                        {
+                            "$k": "Packages/cn.etetet.yiuiluban/Luban/Config/Base/Defines\\UnityMathematicsFloat2.xml",
+                            "$v": {
+                                "$id": 21,
+                                "$type": 7,
+                                "Name": "UnityMathematicsFloat2.xml",
+                                "Alias": null,
+                                "Path": "Packages/cn.etetet.yiuiluban/Luban/Config/Base/Defines\\UnityMathematicsFloat2.xml",
+                                "Desc": null
+                            }
+                        },
+                        {
+                            "$k": "Packages/cn.etetet.yiuiluban/Luban/Config/Base/Defines\\UnityMathematicsFloat3.xml",
+                            "$v": {
+                                "$id": 22,
+                                "$type": 7,
+                                "Name": "UnityMathematicsFloat3.xml",
+                                "Alias": null,
+                                "Path": "Packages/cn.etetet.yiuiluban/Luban/Config/Base/Defines\\UnityMathematicsFloat3.xml",
+                                "Desc": null
+                            }
+                        },
+                        {
+                            "$k": "Packages/cn.etetet.yiuiluban/Luban/Config/Base/Defines\\UnityMathematicsFloat4.xml",
+                            "$v": {
+                                "$id": 23,
+                                "$type": 7,
+                                "Name": "UnityMathematicsFloat4.xml",
+                                "Alias": null,
+                                "Path": "Packages/cn.etetet.yiuiluban/Luban/Config/Base/Defines\\UnityMathematicsFloat4.xml",
+                                "Desc": null
+                            }
+                        },
+                        {
+                            "$k": "Packages/cn.etetet.yiuiluban/Luban/Config/Base/Defines\\UnityMathematicsQuaternion4.xml",
+                            "$v": {
+                                "$id": 24,
+                                "$type": 7,
+                                "Name": "UnityMathematicsQuaternion4.xml",
+                                "Alias": null,
+                                "Path": "Packages/cn.etetet.yiuiluban/Luban/Config/Base/Defines\\UnityMathematicsQuaternion4.xml",
+                                "Desc": null
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}
