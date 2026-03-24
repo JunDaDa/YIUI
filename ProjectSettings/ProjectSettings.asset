@@ -891,26 +891,26 @@ PlayerSettings:
   webWasm2023: 0
   webEnableSubmoduleStrippingCompatibility: 0
   scriptingDefineSymbols:
-    Android: UNITY;ENABLE_VIEW;DOTWEEN
-    EmbeddedLinux: DOTWEEN
-    GameCoreScarlett: DOTWEEN
-    GameCoreXboxOne: DOTWEEN
-    Kepler: DOTWEEN
-    LinuxHeadlessSimulation: DOTWEEN
-    Nintendo Switch: DOTWEEN
-    Nintendo Switch 2: DOTWEEN
-    PS4: DOTWEEN
-    PS5: DOTWEEN
-    QNX: DOTWEEN
+    Android: UNITY;ENABLE_VIEW;DOTWEEN;TextMeshPro
+    EmbeddedLinux: DOTWEEN;TextMeshPro
+    GameCoreScarlett: DOTWEEN;TextMeshPro
+    GameCoreXboxOne: DOTWEEN;TextMeshPro
+    Kepler: DOTWEEN;TextMeshPro
+    LinuxHeadlessSimulation: DOTWEEN;TextMeshPro
+    Nintendo Switch: DOTWEEN;TextMeshPro
+    Nintendo Switch 2: DOTWEEN;TextMeshPro
+    PS4: DOTWEEN;TextMeshPro
+    PS5: DOTWEEN;TextMeshPro
+    QNX: DOTWEEN;TextMeshPro
     Server: UNITY;ENABLE_VIEW
     Stadia: DOTWEEN
-    Standalone: UNITY;ENABLE_VIEW;ODIN_INSPECTOR;ODIN_INSPECTOR_3;ODIN_INSPECTOR_3_1;ODIN_INSPECTOR_3_2;ODIN_INSPECTOR_3_3;DOTWEEN;YIUI;ET9;INITED;YOO_ASSET_2_3_OR_NEWER
-    VisionOS: DOTWEEN
-    WebGL: UNITY;ENABLE_VIEW;DOTWEEN
+    Standalone: UNITY;ENABLE_VIEW;ODIN_INSPECTOR;ODIN_INSPECTOR_3;ODIN_INSPECTOR_3_1;ODIN_INSPECTOR_3_2;ODIN_INSPECTOR_3_3;DOTWEEN;YIUI;ET9;INITED;YOO_ASSET_2_3_OR_NEWER;TextMeshPro
+    VisionOS: DOTWEEN;TextMeshPro
+    WebGL: UNITY;ENABLE_VIEW;DOTWEEN;TextMeshPro
     Windows Store Apps: DOTWEEN
-    XboxOne: DOTWEEN
-    iPhone: UNITY;ENABLE_VIEW;DOTWEEN
-    tvOS: DOTWEEN
+    XboxOne: DOTWEEN;TextMeshPro
+    iPhone: UNITY;ENABLE_VIEW;DOTWEEN;TextMeshPro
+    tvOS: DOTWEEN;TextMeshPro
   additionalCompilerArguments: {}
   platformArchitecture:
     iPhone: 1

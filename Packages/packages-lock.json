@@ -319,6 +319,22 @@
         "cn.etetet.yiuieffect": "3.0.0"
       }
     },
+    "cn.etetet.yiuisuperscroll": {
+      "version": "file:cn.etetet.yiuisuperscroll",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {
+        "cn.etetet.core": "1.0.0"
+      }
+    },
+    "cn.etetet.yiuisuperscrolldemo": {
+      "version": "file:cn.etetet.yiuisuperscrolldemo",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {
+        "cn.etetet.core": "1.0.0"
+      }
+    },
     "cn.etetet.yiuitips": {
       "version": "file:cn.etetet.yiuitips",
       "depth": 0,

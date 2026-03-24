@@ -64,5 +64,12 @@
     },
     "BanDotweenAnim": false,
     "OpenGMViewKey": 27,
-    "OpenGMViewFirstType": false
+    "OpenGMViewFirstType": false,
+    "I2UseRuntimeModule": false,
+    "I2DefaultLanguage": "Chinese",
+    "I2CodeCommentLanguage": "Chinese",
+    "I2CloseSecondaryTranslation": false,
+    "I2NullTranslationError": false,
+    "I2AutoComplete": false,
+    "I2AutoCompleteFormat": "{0}[Null]"
 }
