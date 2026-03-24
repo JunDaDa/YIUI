@@ -87,7 +87,7 @@ namespace ET
     泛型3 = 固定NumericChange  写其他的无效
     当触发时 就会直接调用到对应的实例中
     一般用于UI刷新 等等
-    [NumericHandlerDynamic(SceneType.Current, NumericType.AOI0)]
+    [NumericHandlerDynamic(SceneType.Current, ENumericType.AOI0)]
     [FriendOf(typeof(NumericHandlerDynamicDemoComponent))]
     public class UnitNumericChangeEventHandler_AOI0 : NumericHandlerDynamicSystem<NumericHandlerDynamicDemoComponent, Unit, NumericChange>
     {

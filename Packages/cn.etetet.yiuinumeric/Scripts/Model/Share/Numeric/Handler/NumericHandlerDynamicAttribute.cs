@@ -14,16 +14,16 @@ namespace ET
 
         //触发的类型限制
         //对应类型改变才会响应
-        public int NumericType { get; }
+        public int ENumericType { get; }
 
         //监听的父级层数限制 默认=0层
         //这个有比较多的功能和用法
         //0层代表 任意都响应 没有完全理解的情况下请使用0
         /*
             特殊举例: Unit 挂了数值组件  还挂了一个 UI对应的UI血条组件 >> UnitHPComponent 显示层的UI
-                此时数值组件响应了  所以NumericChange中的_ChangeEntity; //NumericComponent.Parent = 这个Unit
+                此时数值组件响应了  所以NumericChange中的_ChangeEntity; //NumericDataComponent.Parent = 这个Unit
 
-                [NumericHandlerDynamic(SceneType.Current, NumericType.HP0, 1)]
+                [NumericHandlerDynamic(SceneType.Current, ENumericType.HP0, 1)]
                 [FriendOf(typeof(Unit))]
                 public class UnitHPComponent_UnitNumericChangeEventHandler_Diamond0 : NumericHandlerDynamicSystem<UnitHPComponent, Unit, NumericChange>
                 {
@@ -36,7 +36,7 @@ namespace ET
                 解读上述案例:
                 NumericHandlerDynamicSystem其实就是全局的静态事件监听写在哪里都可以的推荐还是写到对应的CompentSystem里面
                 泛型1 = 响应事件的具体实体  肯定是存在的
-                泛型2 = 那个数值组件的父级是谁    //NumericComponent.Parent = 这个Unit
+                泛型2 = 那个数值组件的父级是谁    //NumericDataComponent.Parent = 这个Unit
                 那就是这个System注册了数值改变事件 也就是当数值组件的父级是Unit时会触发
 
                 当InvakeParentLayerCount <= 0时 代表无需检查父级 就是不需要精准响应
@@ -61,7 +61,7 @@ namespace ET
         public NumericHandlerDynamicAttribute(int sceneType, ENumericType numericType, int invakeParentLayerCount = 0)
         {
             this.SceneType              = sceneType;
-            this.NumericType            = (int)numericType;
+            this.ENumericType            = (int)numericType;
             this.InvakeParentLayerCount = invakeParentLayerCount;
         }
 
@@ -70,7 +70,7 @@ namespace ET
         public NumericHandlerDynamicAttribute(int sceneType)
         {
             this.SceneType   = sceneType;
-            this.NumericType = 0;
+            this.ENumericType = 0;
         }
     }
 }

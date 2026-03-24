@@ -6,33 +6,33 @@ namespace YIUIFramework
 {
     public static class TypeExt
     {
-        private static readonly Dictionary<Type, NumericType> g_numTypeMap;
+        private static readonly Dictionary<Type, ENumericType> g_numTypeMap;
 
         static TypeExt()
         {
-            var numTypeMap = new Dictionary<Type, NumericType>(11);
-            numTypeMap[typeof(byte)]    = NumericType.Byte;
-            numTypeMap[typeof(sbyte)]   = NumericType.SByte;
-            numTypeMap[typeof(short)]   = NumericType.Int16;
-            numTypeMap[typeof(int)]     = NumericType.Int32;
-            numTypeMap[typeof(long)]    = NumericType.Int64;
-            numTypeMap[typeof(ushort)]  = NumericType.UInt16;
-            numTypeMap[typeof(uint)]    = NumericType.UInt32;
-            numTypeMap[typeof(ulong)]   = NumericType.UInt64;
-            numTypeMap[typeof(float)]   = NumericType.Float;
-            numTypeMap[typeof(double)]  = NumericType.Double;
-            numTypeMap[typeof(decimal)] = NumericType.Decimal;
+            var numTypeMap = new Dictionary<Type, ENumericType>(11);
+            numTypeMap[typeof(byte)]    = ENumericType.Byte;
+            numTypeMap[typeof(sbyte)]   = ENumericType.SByte;
+            numTypeMap[typeof(short)]   = ENumericType.Int16;
+            numTypeMap[typeof(int)]     = ENumericType.Int32;
+            numTypeMap[typeof(long)]    = ENumericType.Int64;
+            numTypeMap[typeof(ushort)]  = ENumericType.UInt16;
+            numTypeMap[typeof(uint)]    = ENumericType.UInt32;
+            numTypeMap[typeof(ulong)]   = ENumericType.UInt64;
+            numTypeMap[typeof(float)]   = ENumericType.Float;
+            numTypeMap[typeof(double)]  = ENumericType.Double;
+            numTypeMap[typeof(decimal)] = ENumericType.Decimal;
             g_numTypeMap                = numTypeMap;
         }
 
-        public static NumericType GetNumericType(this Type type)
+        public static ENumericType GetNumericType(this Type type)
         {
-            if (g_numTypeMap.TryGetValue(type, out NumericType value))
+            if (g_numTypeMap.TryGetValue(type, out ENumericType value))
             {
                 return value;
             }
 
-            return NumericType.NaN;
+            return ENumericType.NaN;
         }
 
         /// <summary>
@@ -118,7 +118,7 @@ namespace YIUIFramework
         }
     }
 
-    public enum NumericType
+    public enum ENumericType
     {
         NaN,
         Byte,

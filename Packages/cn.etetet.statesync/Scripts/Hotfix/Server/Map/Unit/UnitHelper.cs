@@ -4,13 +4,13 @@ using Unity.Mathematics;
 namespace ET.Server
 {
     [FriendOf(typeof(MoveComponent))]
-    [FriendOf(typeof(NumericComponent))]
+    [FriendOf(typeof(NumericDataComponent))]
     public static partial class UnitHelper
     {
         public static UnitInfo CreateUnitInfo(Unit unit)
         {
             UnitInfo unitInfo = UnitInfo.Create();
-            NumericComponent nc = unit.GetComponent<NumericComponent>();
+            NumericDataComponent nc = unit.GetComponent<NumericDataComponent>();
             unitInfo.UnitId = unit.Id;
             unitInfo.ConfigId = unit.ConfigId;
             unitInfo.Type = (int)unit.Type();

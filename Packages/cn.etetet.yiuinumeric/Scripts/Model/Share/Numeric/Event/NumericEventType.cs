@@ -26,7 +26,7 @@ namespace ET
     /// </summary>
     public struct NumericChange
     {
-        public EntityRef<Entity> _ChangeEntityRef; //NumericComponent.Parent
+        public EntityRef<Entity> _ChangeEntityRef; //NumericDataComponent.Parent
         public Entity _ChangeEntity => _ChangeEntityRef;
         public int _NumericType; //被修改的数值类型ID
         public long _Old; //修改前的值
@@ -38,9 +38,9 @@ namespace ET
     /// </summary>
     public struct NumericGMChange
     {
-        public EntityRef<Entity> OwnerEntityRef; //就是NumericComponent
+        public EntityRef<Entity> OwnerEntityRef; //就是NumericDataComponent
         public Entity OwnerEntity => OwnerEntityRef;
-        public int NumericType; //被修改的数值类型ID
+        public int ENumericType; //被修改的数值类型ID
         public long Old; //修改前的值
         public long New; //修改后的值
     }
@@ -51,14 +51,14 @@ namespace ET
     public struct NumericAffect
     {
         public NumericData Data; //当前的数值数据
-        public int NumericType; //触发者的数值类型ID
+        public int ENumericType; //触发者的数值类型ID
         public long Old; //触发者的修改前的值
         public long New; //触发者的修改后的值
         public int AffectNumericType; //被影响的数值类型ID
         public long AffectCurrent; //被影响的数值的当前值
 
         public NumericData D => Data;
-        public int NT => NumericType;
+        public int NT => ENumericType;
         public long O => Old;
         public long N => New;
         public int AT => AffectNumericType;

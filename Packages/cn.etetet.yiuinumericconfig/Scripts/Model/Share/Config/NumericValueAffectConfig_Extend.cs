@@ -9,23 +9,23 @@ namespace ET
 
         private readonly Dictionary<ENumericType, long> m_AffectUniqueId = new();
 
-        public bool IsAffect(ENumericType numericType)
+        public bool IsAffect(ENumericType ENumericType)
         {
-            return m_AffectHash.Contains(numericType);
+            return m_AffectHash.Contains(ENumericType);
         }
 
-        public long GetAffectUniqueId(ENumericType numericType)
+        public long GetAffectUniqueId(ENumericType ENumericType)
         {
-            if (!IsAffect(numericType))
+            if (!IsAffect(ENumericType))
             {
-                Log.Error($"{Id} 不存在影响类型 {numericType} 请正确使用");
+                Log.Error($"{Id} 不存在影响类型 {ENumericType} 请正确使用");
                 return 0;
             }
 
-            if (!m_AffectUniqueId.TryGetValue(numericType, out var uniqueId))
+            if (!m_AffectUniqueId.TryGetValue(ENumericType, out var uniqueId))
             {
-                uniqueId = GenerateUniqueId((int)Id, (int)numericType);
-                m_AffectUniqueId.Add(numericType, uniqueId);
+                uniqueId = GenerateUniqueId((int)Id, (int)ENumericType);
+                m_AffectUniqueId.Add(ENumericType, uniqueId);
             }
 
             return uniqueId;

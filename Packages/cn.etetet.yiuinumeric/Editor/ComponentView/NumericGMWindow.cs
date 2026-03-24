@@ -162,7 +162,7 @@ namespace ET
                     PushGMChange(EventSystem.Instance.PublishAsync(ownerEntity.Scene(), new NumericGMChange
                     {
                         OwnerEntityRef = ownerEntity,
-                        NumericType = m_AddType,
+                        ENumericType = m_AddType,
                         New = m_AddValue
                     })).NoContext();
                 }
@@ -280,7 +280,7 @@ namespace ET
                             PushGMChange(EventSystem.Instance.PublishAsync(ownerEntity.Scene(), new NumericGMChange
                             {
                                 OwnerEntityRef = ownerEntity,
-                                NumericType = k,
+                                ENumericType = k,
                                 Old = oldValue,
                                 New = newValue
                             })).NoContext();

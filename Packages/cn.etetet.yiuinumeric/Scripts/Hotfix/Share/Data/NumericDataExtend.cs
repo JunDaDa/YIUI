@@ -119,7 +119,7 @@ namespace ET
                     var affectNewValue = EventSystem.Instance.Invoke<NumericAffect, long>(uniqueId, new NumericAffect
                     {
                         Data = self,
-                        NumericType = numericType,
+                        ENumericType = numericType,
                         Old = oldValue,
                         New = limitValue,
                         AffectNumericType = affectType,

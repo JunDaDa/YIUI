@@ -8,13 +8,13 @@ namespace ET
     {
         public int SceneType { get; }
 
-        public int NumericType { get; }
+        public int ENumericType { get; }
 
         //监听指定的数值类型 一次只能监听一个 有多个监听就要写多个
         public NumericHandlerAttribute(int sceneType, ENumericType numericType)
         {
             this.SceneType   = sceneType;
-            this.NumericType = (int)numericType;
+            this.ENumericType = (int)numericType;
         }
 
         //监听所有数值类型 注意这种监听所有一般用于服务器等大的分发之类的
@@ -22,7 +22,7 @@ namespace ET
         public NumericHandlerAttribute(int sceneType)
         {
             this.SceneType   = sceneType;
-            this.NumericType = 0;
+            this.ENumericType = 0;
         }
     }
 }

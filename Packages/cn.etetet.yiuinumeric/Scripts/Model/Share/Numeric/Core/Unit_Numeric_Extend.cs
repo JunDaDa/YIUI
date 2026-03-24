@@ -18,13 +18,13 @@
         #region 数值组件的封装 因为使用频率很高
 
         private EntityRef<NumericDataComponent> m_Numeric;
-        private NumericDataComponent            m_NumericComponent => m_Numeric;
+        private NumericDataComponent            m_NumericDataComponent => m_Numeric;
 
-        public NumericDataComponent NumericComponent
+        public NumericDataComponent NumericDataComponent
         {
             get
             {
-                if (m_NumericComponent == null)
+                if (m_NumericDataComponent == null)
                 {
                     var numeric = GetComponent<NumericDataComponent>();
                     if (numeric == null)
@@ -38,7 +38,7 @@
                     }
                 }
 
-                return m_NumericComponent;
+                return m_NumericDataComponent;
             }
         }
 

@@ -219,47 +219,47 @@ namespace YIUIFramework
                 object t;
                 switch (typeof(T).GetNumericType())
                 {
-                    case NumericType.Int32:
+                    case ENumericType.Int32:
                         int.TryParse(input, out var valueInt32);
                         t = valueInt32;
                         break;
-                    case NumericType.UInt32:
+                    case ENumericType.UInt32:
                         uint.TryParse(input, out var valueUInt32);
                         t = valueUInt32;
                         break;
-                    case NumericType.Float:
+                    case ENumericType.Float:
                         float.TryParse(input, out var valueFloat);
                         t = valueFloat;
                         break;
-                    case NumericType.Int16:
+                    case ENumericType.Int16:
                         Int16.TryParse(input, out var valueInt16);
                         t = valueInt16;
                         break;
-                    case NumericType.Int64:
+                    case ENumericType.Int64:
                         Int64.TryParse(input, out var valueInt64);
                         t = valueInt64;
                         break;
-                    case NumericType.UInt16:
+                    case ENumericType.UInt16:
                         UInt16.TryParse(input, out var valueUInt16);
                         t = valueUInt16;
                         break;
-                    case NumericType.UInt64:
+                    case ENumericType.UInt64:
                         UInt64.TryParse(input, out var valueUInt64);
                         t = valueUInt64;
                         break;
-                    case NumericType.Byte:
+                    case ENumericType.Byte:
                         byte.TryParse(input, out var valueByte);
                         t = valueByte;
                         break;
-                    case NumericType.SByte:
+                    case ENumericType.SByte:
                         sbyte.TryParse(input, out var valueSByte);
                         t = valueSByte;
                         break;
-                    case NumericType.Double:
+                    case ENumericType.Double:
                         double.TryParse(input, out var valueDouble);
                         t = valueDouble;
                         break;
-                    case NumericType.Decimal:
+                    case ENumericType.Decimal:
                         decimal.TryParse(input, out var valueDecimal);
                         t = valueDecimal;
                         break;

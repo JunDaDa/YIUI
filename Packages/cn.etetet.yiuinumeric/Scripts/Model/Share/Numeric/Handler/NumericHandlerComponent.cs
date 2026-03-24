@@ -51,7 +51,7 @@ namespace ET
                 var numericHandlerAttribute = (NumericHandlerAttribute)attrs[0];
                 var obj                     = (INumericHandler)Activator.CreateInstance(type);
                 var numericHandlerInfo      = new NumericHandlerInfo(numericHandlerAttribute.SceneType, obj);
-                var numericType             = numericHandlerAttribute.NumericType;
+                var numericType             = numericHandlerAttribute.ENumericType;
 
                 if (!m_AllHandlers.ContainsKey(tType))
                 {

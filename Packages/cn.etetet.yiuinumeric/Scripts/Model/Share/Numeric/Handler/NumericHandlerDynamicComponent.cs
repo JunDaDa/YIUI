@@ -97,7 +97,7 @@ namespace ET
                 var obj = (INumericHandlerDynamic)Activator.CreateInstance(type);
                 var numericHandlerInfo =
                         new NumericHandlerDynamicInfo(numericHandlerAttribute.SceneType, obj, numericHandlerAttribute.InvakeParentLayerCount);
-                var numericType = numericHandlerAttribute.NumericType;
+                var numericType = numericHandlerAttribute.ENumericType;
 
                 if (!m_AllHandlers.ContainsKey(tType1))
                 {
