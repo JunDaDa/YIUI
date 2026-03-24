@@ -227,6 +227,12 @@
         "cn.etetet.yiuiinvoke": "4.0.3"
       }
     },
+    "cn.etetet.yiuigameobjectpool": {
+      "version": "file:cn.etetet.yiuigameobjectpool",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
+    },
     "cn.etetet.yiuigm": {
       "version": "file:cn.etetet.yiuigm",
       "depth": 0,

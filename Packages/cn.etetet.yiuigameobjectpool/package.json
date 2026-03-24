@@ -1,0 +1,19 @@
+{
+  "name": "cn.etetet.yiuigameobjectpool",
+  "displayName": "ET.YIUI.GameObjectPool",
+  "version": "2.0.2",
+  "unity": "2022.3",
+  "category": "UI/YIUI",
+  "description": "游戏对象缓存池 >>> 文档: https://lib9kmxvq7k.feishu.cn/wiki/UyigweBFXipNJnkCIY6coHzFnSc",
+  "author": {
+    "name": "YIYI",
+    "url": "https://github.com/LiShengYang-yiyi/YIUI/tree/YIUI-ET9.0"
+  },
+  "repository": {},
+  "relatedPackages": {},
+  "dependencies": {},
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/@ET-Packages"
+  },
+  "_fingerprint": "9a092a68bedaecbef0b64a111cf528dfa17f3c10"
+}
