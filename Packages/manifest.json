@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.coplaydev.unity-mcp": "https://github.com/CoplayDev/unity-mcp.git?path=/MCPForUnity#main",
     "cn.etetet.router": "3.0.1",
     "cn.etetet.statesync": "3.0.12",
     "cn.etetet.yiui3ddisplay": "3.1.0",

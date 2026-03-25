@@ -1,0 +1,10 @@
+{
+  "commands": [
+    {"action": "wait", "panel": "LoginPanel", "element": "Account", "timeout": 15},
+    {"action": "input", "name": "Account", "value": "123"},
+    {"action": "input", "name": "Password", "value": "123"},
+    {"action": "click", "name": "LoginBtn"},
+    {"action": "wait", "panel": "LobbyPanel", "element": "EnterMap"},
+    {"action": "click", "text": "进入"}
+  ]
+}
