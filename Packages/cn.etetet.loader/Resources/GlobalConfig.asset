@@ -15,3 +15,4 @@ MonoBehaviour:
   CodeMode: 3
   SceneName: StateSync
   Address: 127.0.0.1:10101
+  NetworkMode: 1

@@ -10,6 +10,10 @@ namespace ET.Client
     {
         protected override async ETTask Run(Scene root, EntryEvent3 args)
         {
+            NetSessionCreator.Instance = Options.Instance.IsLocalNetwork
+                ? new LocalNetSessionCreator()
+                : new RemoteNetSessionCreator();
+
             root.AddComponent<GlobalComponent>();
             root.AddComponent<ResourcesLoaderComponent>();
             root.AddComponent<PlayerComponent>();

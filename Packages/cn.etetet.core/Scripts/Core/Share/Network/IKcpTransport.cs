@@ -19,22 +19,48 @@ namespace ET
     public class UdpTransport: IKcpTransport
     {
         private readonly Socket socket;
+        private readonly IKcpTransport m_LocalDelegate;
 
+        /// <summary>
+        /// 客户端构造：创建未绑定的 UDP socket（Remote）或获取 MuxTransport（Local）
+        /// </summary>
         public UdpTransport(AddressFamily addressFamily)
         {
+            if (Options.Instance != null && Options.Instance.IsLocalNetwork)
+            {
+                m_LocalDelegate = InMemoryTransportRegistry.GetMux();
+                return;
+            }
+
             this.socket = new Socket(addressFamily, SocketType.Dgram, ProtocolType.Udp);
             NetworkHelper.SetSioUdpConnReset(this.socket);
         }
-        
+
+        /// <summary>
+        /// 服务端构造：绑定端口监听（Remote）或创建 InMemory transport 并注册到 Mux（Local）
+        /// </summary>
         public UdpTransport(IPEndPoint ipEndPoint)
         {
+            if (Options.Instance != null && Options.Instance.IsLocalNetwork)
+            {
+                InMemoryMuxTransport mux = InMemoryTransportRegistry.GetMux();
+                if (mux != null)
+                {
+                    InMemoryKcpTransport serverTransport = new InMemoryKcpTransport(ipEndPoint);
+                    serverTransport.BindClientMux(mux);
+                    mux.AddRoute(ipEndPoint.Port, serverTransport);
+                    m_LocalDelegate = serverTransport;
+                    return;
+                }
+            }
+
             this.socket = new Socket(ipEndPoint.AddressFamily, SocketType.Dgram, ProtocolType.Udp);
             if (!RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
             {
                 this.socket.SendBufferSize = Kcp.OneM * 64;
                 this.socket.ReceiveBufferSize = Kcp.OneM * 64;
             }
-            
+
             try
             {
                 this.socket.Bind(ipEndPoint);
@@ -46,32 +72,64 @@ namespace ET
 
             NetworkHelper.SetSioUdpConnReset(this.socket);
         }
-        
+
         public void Send(byte[] bytes, int index, int length, EndPoint endPoint, ChannelType channelType)
         {
+            if (m_LocalDelegate != null)
+            {
+                m_LocalDelegate.Send(bytes, index, length, endPoint, channelType);
+                return;
+            }
+
             this.socket.SendTo(bytes, index, length, SocketFlags.None, endPoint);
         }
-        
+
         public int Recv(byte[] buffer, ref EndPoint endPoint)
         {
+            if (m_LocalDelegate != null)
+            {
+                return m_LocalDelegate.Recv(buffer, ref endPoint);
+            }
+
             return this.socket.ReceiveFrom(buffer, ref endPoint);
         }
 
         public int Available()
         {
+            if (m_LocalDelegate != null)
+            {
+                return m_LocalDelegate.Available();
+            }
+
             return this.socket.Available;
         }
 
         public void Update()
         {
+            if (m_LocalDelegate != null)
+            {
+                m_LocalDelegate.Update();
+                return;
+            }
         }
 
         public void OnError(long id, int error)
         {
+            if (m_LocalDelegate != null)
+            {
+                m_LocalDelegate.OnError(id, error);
+                return;
+            }
         }
 
         public void Dispose()
         {
+            if (m_LocalDelegate != null)
+            {
+                m_LocalDelegate.Dispose();
+                return;
+            }
+
             this.socket?.Dispose();
         }
     }

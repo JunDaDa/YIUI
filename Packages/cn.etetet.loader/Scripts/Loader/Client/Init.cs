@@ -28,6 +28,7 @@ namespace ET
 
             GlobalConfig globalConfig = Resources.Load<GlobalConfig>("GlobalConfig");
             Options.Instance.SceneName = globalConfig.SceneName;
+            Options.Instance.NetworkMode = (int)globalConfig.NetworkMode;
 			
             World.Instance.AddSingleton<Logger>().Log = new UnityLogger();
             ETTask.ExceptionHandler += Log.Error;

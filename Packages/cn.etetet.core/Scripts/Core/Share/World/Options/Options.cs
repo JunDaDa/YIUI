@@ -23,5 +23,12 @@ namespace ET
         
         [Option("Console", Required = false, Default = 0)]
         public int Console { get; set; }
+
+        /// <summary>
+        /// 0 = Remote, 1 = Local (InMemory transport)
+        /// </summary>
+        public int NetworkMode { get; set; }
+
+        public bool IsLocalNetwork => NetworkMode == 1;
     }
 }

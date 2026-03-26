@@ -63,6 +63,8 @@
         0.8
     },
     "BanDotweenAnim": false,
+    "YIUIDefaultOpenAIName": null,
+    "CloseGMCommand": false,
     "OpenGMViewKey": 27,
     "OpenGMViewFirstType": false,
     "I2UseRuntimeModule": false,

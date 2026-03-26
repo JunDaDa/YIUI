@@ -9,6 +9,12 @@ namespace ET
         ClientServer = 3,
     }
     
+    public enum NetworkMode
+    {
+        Remote = 0,
+        Local = 1,
+    }
+
     public enum BuildType
     {
         Debug,
@@ -23,5 +29,7 @@ namespace ET
         public string SceneName;
 
         public string Address;
+
+        public NetworkMode NetworkMode;
     }
 }

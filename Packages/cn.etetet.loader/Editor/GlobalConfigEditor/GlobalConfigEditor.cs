@@ -46,7 +46,13 @@ namespace ET
                 EditorResHelper.SaveAssets(globalConfig);
                 AssetDatabase.Refresh();
             }
-            
+
+            NetworkMode networkMode = (NetworkMode)EditorGUILayout.EnumPopup("NetworkMode", globalConfig.NetworkMode);
+            if (networkMode != globalConfig.NetworkMode)
+            {
+                globalConfig.NetworkMode = networkMode;
+                EditorResHelper.SaveAssets(globalConfig);
+            }
         }
     }
 }
