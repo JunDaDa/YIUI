@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "com.coplaydev.unity-mcp": "https://github.com/CoplayDev/unity-mcp.git?path=/MCPForUnity#main",
     "cn.etetet.router": "3.0.1",
     "cn.etetet.statesync": "3.0.12",
     "cn.etetet.yiui3ddisplay": "3.1.0",
@@ -16,6 +15,10 @@
     "cn.etetet.yiuisuperscrolldemo": "0.0.2",
     "cn.etetet.yiuitips": "3.0.3",
     "cn.etetet.yiuiyooassets": "3.1.0",
+    "com.coplaydev.unity-mcp": "https://github.com/CoplayDev/unity-mcp.git?path=/MCPForUnity#main",
+    "com.esotericsoftware.spine.spine-csharp": "https://github.com/EsotericSoftware/spine-runtimes.git?path=spine-csharp/src#4.2",
+    "com.esotericsoftware.spine.spine-unity": "https://github.com/EsotericSoftware/spine-runtimes.git?path=spine-unity/Assets/Spine#4.2",
+    "com.esotericsoftware.spine.urp-shaders": "https://github.com/EsotericSoftware/spine-runtimes.git?path=spine-unity/Modules/com.esotericsoftware.spine.urp-shaders#4.2",
     "com.unity.ai.navigation": "2.0.11",
     "com.unity.editorcoroutines": "1.0.1",
     "com.unity.ide.rider": "3.0.39",

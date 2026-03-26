@@ -1,0 +1,117 @@
+1_shushan.png
+size:1905,269
+filter:Linear,Linear
+pma:true
+B_10_tou
+bounds:647,89,132,178
+B_11_youtui
+bounds:1649,53,52,105
+B_12_youjiao
+bounds:1179,113,25,76
+rotate:90
+B_13_zuotui
+bounds:1649,6,45,102
+offsets:0,0,47,102
+rotate:90
+B_14_zuojiao
+bounds:927,94,32,78
+rotate:90
+B_15_weiqun
+bounds:964,135,109,132
+B_16_xiuzi
+bounds:815,2,88,165
+rotate:90
+B_17_zuobi
+bounds:1546,2,43,48
+rotate:90
+B_1_youshou
+bounds:886,94,14,12
+rotate:90
+B_2_wuqi
+bounds:566,3,161,78
+B_3_xiuzi
+bounds:781,92,103,175
+B_4_youbi
+bounds:1007,94,48,39
+B_5_weiqun
+bounds:1295,18,46,122
+B_6_shenti
+bounds:1802,54,59,55
+B_7_weiqun
+bounds:1119,98,40,58
+rotate:90
+B_8_weiqun
+bounds:1057,98,35,60
+rotate:90
+B_9_toufa
+bounds:1613,160,96,107
+Energy 034_00001
+bounds:1807,202,65,96
+offsets:45,20,113,120
+rotate:90
+Energy 034_00002
+bounds:461,2,103,79
+offsets:8,39,113,120
+Energy 034_00003
+bounds:1508,157,103,110
+offsets:3,9,113,120
+Energy 034_00004
+bounds:1343,31,104,115
+offsets:7,4,113,120
+Energy 034_00005
+bounds:1449,42,95,111
+offsets:7,4,113,120
+Energy 034_00006
+bounds:1202,2,91,109
+offsets:6,6,113,120
+Energy 034_00007
+bounds:1703,54,97,104
+offsets:1,8,113,120
+Energy 034_00008
+bounds:1096,2,94,104
+offsets:4,8,113,120
+rotate:90
+Energy 034_00009
+bounds:1711,163,94,104
+offsets:7,8,113,120
+Energy 034_00010
+bounds:1419,155,87,112
+offsets:13,0,113,120
+Item_TrueIce_Hit_Nova_Ground
+bounds:1303,148,114,119
+offsets:5,3,128,128
+S1
+bounds:1186,142,115,125
+offsets:1,9,118,134
+S2
+bounds:1546,47,108,101
+offsets:11,15,138,116
+rotate:90
+S3
+bounds:982,3,89,112
+offsets:15,9,113,126
+rotate:90
+S4
+bounds:1807,111,91,89
+offsets:1,2,93,102
+SRU_Baron_Death_fireLine
+bounds:2,11,103,256
+offsets:13,0,128,256
+Shyvana_Frost_W_Ground_Smoke
+bounds:461,83,184,184
+offsets:8,9,200,200
+T1
+bounds:886,110,39,157
+offsets:1,2,41,161
+T6
+bounds:1075,140,109,127
+offsets:5,0,128,128
+T9
+bounds:107,12,352,255
+offsets:10,0,367,256
+fire02
+bounds:729,3,84,84
+offsets:1,1,85,87
+lihuidiying
+bounds:927,128,139,35
+rotate:90
