@@ -1,3 +1,4 @@
+using Unity.Mathematics;
 using UnityEngine;
 
 namespace ET.Client
@@ -14,8 +15,44 @@ namespace ET.Client
         [EntitySystem]
         private static void Update(this OperaComponent self)
         {
+            // === WASD Continuous Input (MOVE-01, MOVE-06) ===
+            float x = 0f;
+            float z = 0f;
+            if (Input.GetKey(KeyCode.W)) z += 1f;
+            if (Input.GetKey(KeyCode.S)) z -= 1f;
+            if (Input.GetKey(KeyCode.A)) x -= 1f;
+            if (Input.GetKey(KeyCode.D)) x += 1f;
+
+            float3 direction = float3.zero;
+            if (x != 0f || z != 0f)
+            {
+                direction = math.normalize(new float3(x, 0f, z));
+            }
+
+            // Only send when direction changes (MOVE-07: avoid per-frame message creation)
+            if (!direction.Equals(self.LastDirection))
+            {
+                self.LastDirection = direction;
+                self.IsDirectMoving = math.lengthsq(direction) > 0.001f;
+
+                C2M_JoystickMove msg = C2M_JoystickMove.Create();
+                msg.Direction = direction;
+                self.Root().GetComponent<ClientSenderComponent>().Send(msg);
+            }
+
+            // === Click-to-Move (existing, with mutual cancellation MOVE-05) ===
             if (Input.GetMouseButtonDown(1))
             {
+                // Cancel WASD movement if active
+                if (self.IsDirectMoving)
+                {
+                    self.LastDirection = float3.zero;
+                    self.IsDirectMoving = false;
+                    C2M_JoystickMove stopMsg = C2M_JoystickMove.Create();
+                    stopMsg.Direction = float3.zero;
+                    self.Root().GetComponent<ClientSenderComponent>().Send(stopMsg);
+                }
+
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 RaycastHit hit;
                 if (Physics.Raycast(ray, out hit, 1000, self.mapMask))
@@ -25,25 +62,11 @@ namespace ET.Client
                     self.Root().GetComponent<ClientSenderComponent>().Send(c2MPathfindingResult);
                 }
             }
-            
+
+            // === Utility keys (keep) ===
             if (Input.GetKeyDown(KeyCode.R))
             {
                 CodeLoader.Instance.Reload();
-            }
-            
-            if (Input.GetKeyDown(KeyCode.Q))
-            {
-                self.Test1().NoContext();
-            }
-                
-            if (Input.GetKeyDown(KeyCode.W))
-            {
-                self.Test2().NoContext();
-            }
-            
-            if (Input.GetKeyDown(KeyCode.A))
-            {
-                self.TestCancelAfter().WithContext(new ETCancellationToken());
             }
 
             if (Input.GetKeyDown(KeyCode.T))
@@ -51,47 +74,6 @@ namespace ET.Client
                 C2M_TransferMap c2MTransferMap = C2M_TransferMap.Create();
                 self.Root().GetComponent<ClientSenderComponent>().Call(c2MTransferMap).NoContext();
             }
-        }
-        
-        private static async ETTask Test1(this OperaComponent self)
-        {
-            Log.Debug($"Croutine 1 start1 ");
-            using (await self.Root().GetComponent<CoroutineLockComponent>().Wait(1, 20000, 3000))
-            {
-                await self.Root().GetComponent<TimerComponent>().WaitAsync(6000);
-            }
-
-            Log.Debug($"Croutine 1 end1");
-        }
-            
-        private static async ETTask Test2(this OperaComponent self)
-        {
-            ETCancellationToken oldCancellationToken = await ETTaskHelper.GetContextAsync<ETCancellationToken>();
-            Log.Debug($"Croutine 2 start2");
-            using (await self.Root().GetComponent<CoroutineLockComponent>().Wait(1, 20000, 3000))
-            {
-                await self.Root().GetComponent<TimerComponent>().WaitAsync(1000);
-            }
-            Log.Debug($"Croutine 2 end2");
-        }
-        
-        private static async ETTask TestCancelAfter(this OperaComponent self)
-        {
-            ETCancellationToken oldCancellationToken = await ETTaskHelper.GetContextAsync<ETCancellationToken>();
-            
-            Log.Debug($"TestCancelAfter start");
-            ETCancellationToken newCancellationToken = new();
-            await self.Root().GetComponent<TimerComponent>().WaitAsync(3000).TimeoutAsync(newCancellationToken, 1000);
-            if (newCancellationToken.IsCancel())
-            {
-                Log.Debug($"TestCancelAfter newCancellationToken is cancel!");
-            }
-            
-            if (oldCancellationToken != null && !oldCancellationToken.IsCancel())
-            {
-                Log.Debug($"TestCancelAfter oldCancellationToken is not cancel!");
-            }
-            Log.Debug($"TestCancelAfter end");
         }
     }
 }

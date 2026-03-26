@@ -181,3 +181,18 @@ message G2C_Benchmark // ISessionResponse
 	int32 Error = 2;
 	string Message = 3;
 }
+
+// Client sends WASD direction to server (zero = stop)
+message C2M_JoystickMove // ILocationMessage
+{
+	int32 RpcId = 1;
+	Unity.Mathematics.float3 Direction = 2;
+}
+
+// Server broadcasts position update during joystick movement
+message M2C_JoystickMove // IMessage
+{
+	int64 Id = 1;
+	Unity.Mathematics.float3 Position = 2;
+	Unity.Mathematics.float3 Direction = 3;
+}
