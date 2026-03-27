@@ -5,6 +5,8 @@
         "ET.Core",
         "ET.MemoryPack",
         "ET.Recast",
+        "ET.SJ.Camera",
+        "ET.SJ.GamePlay",
         "ET.SourceGeneratorAttribute",
         "ET.YooAssets",
         "Unity.Mathematics"

@@ -1,0 +1,11 @@
+﻿{
+    "Id": 0,
+    "Name": "sjcamera",
+    "ScriptsReferences": 
+    {
+        "Hotfix": ["ET.SJ.Camera"],
+        "HotfixView": ["ET.SJ.Camera"],
+        "Model": ["ET.SJ.Camera"],
+        "ModelView": ["ET.SJ.Camera"]
+    }
+}

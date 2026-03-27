@@ -7,6 +7,8 @@
         "ET.MemoryPack",
         "ET.Model",
         "ET.Recast",
+        "ET.SJ.Camera",
+        "ET.SJ.GamePlay",
         "ET.SourceGeneratorAttribute",
         "Unity.Mathematics"
     ],

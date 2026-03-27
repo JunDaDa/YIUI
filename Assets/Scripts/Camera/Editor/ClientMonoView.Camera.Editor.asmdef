@@ -1,0 +1,18 @@
+{
+    "name": "ClientMonoView.Camera.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:887898fec5652bb4582f5db1899fff27"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

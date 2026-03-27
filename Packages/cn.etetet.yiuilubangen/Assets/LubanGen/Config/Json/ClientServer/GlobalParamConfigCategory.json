@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "CameraOffsetX",
+    "Value": 0
+  },
+  {
+    "Id": "CameraOffsetY",
+    "Value": 7
+  },
+  {
+    "Id": "CameraOffsetZ",
+    "Value": -6
+  },
+  {
+    "Id": "CameraFOV",
+    "Value": 60
+  },
+  {
+    "Id": "CameraSmoothTime",
+    "Value": 0.15
+  },
+  {
+    "Id": "CameraZoomSpeed",
+    "Value": 5
+  },
+  {
+    "Id": "CameraMinZoom",
+    "Value": 15
+  },
+  {
+    "Id": "CameraMaxZoom",
+    "Value": 60
+  }
+]

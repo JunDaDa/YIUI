@@ -128,6 +128,24 @@
       "source": "embedded",
       "dependencies": {}
     },
+    "cn.etetet.sjcamera": {
+      "version": "file:cn.etetet.sjcamera",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
+    },
+    "cn.etetet.sjgameplay": {
+      "version": "file:cn.etetet.sjgameplay",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
+    },
+    "cn.etetet.sjspine": {
+      "version": "file:cn.etetet.sjspine",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
+    },
     "cn.etetet.sourcegenerator": {
       "version": "file:cn.etetet.sourcegenerator",
       "depth": 0,

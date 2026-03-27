@@ -33,11 +33,39 @@ namespace ET.Client
             if (!direction.Equals(self.LastDirection))
             {
                 self.LastDirection = direction;
+                bool wasMoving = self.IsDirectMoving;
                 self.IsDirectMoving = math.lengthsq(direction) > 0.001f;
 
                 C2M_JoystickMove msg = C2M_JoystickMove.Create();
                 msg.Direction = direction;
                 self.Root().GetComponent<ClientSenderComponent>().Send(msg);
+
+                // Spine animation & flip for local player
+                Unit myUnit = UnitHelper.GetMyUnitFromClientScene(self.Root());
+                if (myUnit != null)
+                {
+                    SpineComponent spineComponent = myUnit.GetComponent<SpineComponent>();
+                    if (spineComponent != null)
+                    {
+                        if (self.IsDirectMoving)
+                        {
+                            spineComponent.PlayByMotionType(MotionType.Run);
+                            // 角色默认朝左：D (right) → flip, A (left) → normal
+                            if (x > 0f)
+                            {
+                                spineComponent.SetFlipX(true);
+                            }
+                            else if (x < 0f)
+                            {
+                                spineComponent.SetFlipX(false);
+                            }
+                        }
+                        else
+                        {
+                            spineComponent.PlayByMotionType(MotionType.Idle);
+                        }
+                    }
+                }
             }
 
             // === Click-to-Move (existing, with mutual cancellation MOVE-05) ===
@@ -51,6 +79,17 @@ namespace ET.Client
                     C2M_JoystickMove stopMsg = C2M_JoystickMove.Create();
                     stopMsg.Direction = float3.zero;
                     self.Root().GetComponent<ClientSenderComponent>().Send(stopMsg);
+
+                    // Return to idle
+                    Unit myUnit = UnitHelper.GetMyUnitFromClientScene(self.Root());
+                    if (myUnit != null)
+                    {
+                        SpineComponent spineComponent = myUnit.GetComponent<SpineComponent>();
+                        if (spineComponent != null)
+                        {
+                            spineComponent.PlayByMotionType(MotionType.Idle);
+                        }
+                    }
                 }
 
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);

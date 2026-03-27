@@ -51,3 +51,8 @@ Unity.sln
 Unity.sln.DotSettings.user
 Assets/HybridCLR*
 Bundles/
+
+# Claude MCP Screenshots
+Assets/Screenshots/
+# Unity Recovery
+Assets/_Recovery/

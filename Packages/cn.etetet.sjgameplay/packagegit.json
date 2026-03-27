@@ -1,0 +1,11 @@
+{
+    "Id": 0,
+    "Name": "sjgameplay",
+    "ScriptsReferences":
+    {
+        "Hotfix": ["ET.SJ.GamePlay"],
+        "HotfixView": ["ET.SJ.GamePlay", "spine-csharp", "spine-unity"],
+        "Model": ["ET.SJ.GamePlay"],
+        "ModelView": ["ET.SJ.GamePlay", "spine-csharp", "spine-unity"]
+    }
+}
