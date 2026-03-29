@@ -20,7 +20,20 @@ namespace ET
             DtMeshSetReader reader = new();
             using MemoryStream ms = new(buffer);
             using BinaryReader br = new(ms);
-            self.navMesh = reader.Read32Bit(br, 6); // cpp recast导出来的要用Read32Bit读取，DotRecast导出来的还没试过
+
+            // 读取文件头前8字节判断格式：version=1 是 C++ Recast 32bit，0x8802 是 RECAST4J
+            int magic = br.ReadInt32();
+            int version = br.ReadInt32();
+            ms.Position = 0;
+
+            if (version == NavMeshSetHeader.NAVMESHSET_VERSION)
+            {
+                self.navMesh = reader.Read32Bit(br, 6); // C++ Recast 导出的 32bit 格式
+            }
+            else
+            {
+                self.navMesh = reader.Read(br); // RECAST4J 格式，maxVertPerPoly 在文件头中
+            }
             
             if (self.navMesh == null)
             {

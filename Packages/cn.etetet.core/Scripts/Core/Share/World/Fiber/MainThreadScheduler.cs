@@ -1,6 +1,7 @@
 ﻿using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Threading;
+using UnityEngine.Profiling;
 
 namespace ET
 {
@@ -27,8 +28,11 @@ namespace ET
         public void Update()
         {
             SynchronizationContext.SetSynchronizationContext(this.threadSynchronizationContext);
+
+            Profiler.BeginSample("ET.SyncContext.Update");
             this.threadSynchronizationContext.Update();
-            
+            Profiler.EndSample();
+
             int count = this.idQueue.Count;
             while (count-- > 0)
             {
@@ -42,18 +46,20 @@ namespace ET
                 {
                     continue;
                 }
-                
+
                 if (fiber.IsDisposed)
                 {
                     continue;
                 }
-                
+
                 Fiber.Instance = fiber;
                 SynchronizationContext.SetSynchronizationContext(fiber.ThreadSynchronizationContext);
+                Profiler.BeginSample(string.IsNullOrEmpty(fiber.Root.Name) ? "Fiber" : fiber.Root.Name);
                 fiber.Update();
+                Profiler.EndSample();
                 this.idQueue.Enqueue(id);
             }
-            
+
             Fiber.Instance = this.firstFiber;
             // Fiber调度完成，要还原成默认的上下文，否则unity的回调会找不到正确的上下文
             SynchronizationContext.SetSynchronizationContext(this.threadSynchronizationContext);
@@ -82,7 +88,9 @@ namespace ET
 
                 Fiber.Instance = fiber;
                 SynchronizationContext.SetSynchronizationContext(fiber.ThreadSynchronizationContext);
+                Profiler.BeginSample(string.IsNullOrEmpty(fiber.Root.Name) ? "Fiber" : fiber.Root.Name);
                 fiber.LateUpdate();
+                Profiler.EndSample();
                 this.idQueue.Enqueue(id);
             }
 

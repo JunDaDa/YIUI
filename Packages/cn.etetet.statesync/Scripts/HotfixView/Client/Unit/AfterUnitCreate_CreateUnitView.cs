@@ -13,6 +13,10 @@ namespace ET.Client
             GameObject go = UnityEngine.Object.Instantiate(prefab, globalComponent.Unit, true);
             go.transform.position = unit.Position;
             unit.AddComponent<GameObjectComponent>().GameObject = go;
+
+            // 设置角色渲染排序层和 Z 轴深度排序
+            SetupCharacterSorting(go);
+
             var spineComponent = unit.AddComponent<SpineComponent>();
             spineComponent.PlayByMotionType(MotionType.Idle);
 
@@ -31,6 +35,23 @@ namespace ET.Client
             }
 
             await ETTask.CompletedTask;
+        }
+
+        /// <summary>
+        /// 设置角色 GameObject 的 SortingLayer 为 Character，并挂载 ZSortRenderer。
+        /// </summary>
+        private static void SetupCharacterSorting(GameObject go)
+        {
+            Renderer[] renderers = go.GetComponentsInChildren<Renderer>(true);
+            for (int i = 0; i < renderers.Length; i++)
+            {
+                renderers[i].sortingLayerName = "Character";
+            }
+
+            if (go.GetComponent<ZSortRenderer>() == null)
+            {
+                go.AddComponent<ZSortRenderer>();
+            }
         }
     }
 }

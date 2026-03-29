@@ -1,6 +1,7 @@
 ﻿using System;
 using CommandLine;
 using UnityEngine;
+using UnityEngine.Profiling;
 
 namespace ET
 {
@@ -43,8 +44,13 @@ namespace ET
 
         private void Update()
         {
+            Profiler.BeginSample("ET.TimeInfo");
             TimeInfo.Instance.Update();
+            Profiler.EndSample();
+
+            Profiler.BeginSample("ET.FiberManager");
             FiberManager.Instance.Update();
+            Profiler.EndSample();
         }
 
         private void LateUpdate()

@@ -1,0 +1,20 @@
+{
+    "name": "NavMeshTest",
+    "rootNamespace": "",
+    "references": [
+        "AstarPathfindingProject",
+        "PackageTools",
+        "Drawing",
+        "spine-unity",
+        "spine-csharp"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

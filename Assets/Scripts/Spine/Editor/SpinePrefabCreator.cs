@@ -3,11 +3,13 @@ using System.IO;
 using Spine.Unity;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 /// <summary>
 /// 编辑器工具：选中 Spine 文件的父级目录，自动在 Assets/Arts/Prefabs/Role/ 下创建同名预制体。
 /// 支持多选目录，批量创建。
-/// 菜单路径：Assets/Spine/从选中目录创建角色预制体
+/// 自动优化性能：关闭阴影、光照探针、反射探针、动态遮挡、运动向量等。
+/// 菜单路径：Assets/CreateSpinePrefab
 /// </summary>
 public static class SpinePrefabCreator
 {
@@ -105,7 +107,10 @@ public static class SpinePrefabCreator
                     continue;
                 }
 
-                // 3e. 保存为预制体
+                // 3e. 性能优化
+                OptimizeRenderers(go);
+
+                // 3f. 保存为预制体
                 GameObject prefab = PrefabUtility.SaveAsPrefabAsset(go, prefabPath, out bool savedSuccessfully);
                 if (!savedSuccessfully || prefab == null)
                 {
@@ -153,6 +158,86 @@ public static class SpinePrefabCreator
         {
             EditorUtility.DisplayDialog("提示", "没有需要创建的预制体。", "确定");
         }
+    }
+
+    /// <summary>
+    /// 对已存在的 Role 预制体批量执行性能优化（不重新创建）。
+    /// </summary>
+    [MenuItem("ET/Tools/优化所有 Role 预制体", priority = 200)]
+    private static void OptimizeAllRolePrefabs()
+    {
+        if (!AssetDatabase.IsValidFolder(k_OutputFolder))
+        {
+            EditorUtility.DisplayDialog("提示", $"目录不存在: {k_OutputFolder}", "确定");
+            return;
+        }
+
+        string[] guids = AssetDatabase.FindAssets("t:Prefab", new[] { k_OutputFolder });
+        int count = 0;
+
+        foreach (string guid in guids)
+        {
+            string path = AssetDatabase.GUIDToAssetPath(guid);
+            GameObject prefab = AssetDatabase.LoadAssetAtPath<GameObject>(path);
+            if (prefab == null) continue;
+
+            // 打开预制体进行编辑
+            string assetPath = AssetDatabase.GetAssetPath(prefab);
+            GameObject instance = PrefabUtility.LoadPrefabContents(assetPath);
+            if (instance == null) continue;
+
+            OptimizeRenderers(instance);
+            PrefabUtility.SaveAsPrefabAsset(instance, assetPath);
+            PrefabUtility.UnloadPrefabContents(instance);
+            count++;
+        }
+
+        Debug.Log($"[SpinePrefabCreator] 已优化 {count} 个 Role 预制体");
+        EditorUtility.DisplayDialog("完成", $"已优化 {count} 个 Role 预制体", "确定");
+    }
+
+    /// <summary>
+    /// 对 GameObject 及其所有子物体的 Renderer 执行性能优化。
+    /// 2D Spine 角色不需要 3D 渲染管线的大部分特性。
+    /// </summary>
+    private static void OptimizeRenderers(GameObject go)
+    {
+        Renderer[] renderers = go.GetComponentsInChildren<Renderer>(true);
+        for (int i = 0; i < renderers.Length; i++)
+        {
+            Renderer r = renderers[i];
+
+            // --- 阴影 ---
+            r.shadowCastingMode = ShadowCastingMode.Off;    // 不投射阴影
+            r.receiveShadows = false;                        // 不接收阴影
+
+            // --- 光照探针 ---
+            r.lightProbeUsage = LightProbeUsage.Off;         // 2D 角色不需要光照探针
+
+            // --- 反射探针 ---
+            r.reflectionProbeUsage = ReflectionProbeUsage.Off; // 2D 角色不需要反射探针
+
+            // --- 运动向量 ---
+            r.motionVectorGenerationMode = MotionVectorGenerationMode.ForceNoMotion; // 不需要运动模糊
+
+            // --- 动态遮挡剔除 ---
+            r.allowOcclusionWhenDynamic = false;             // 2D 精灵不适合遮挡剔除
+
+            // --- Sorting Layer ---
+            r.sortingLayerName = "Character";                // 统一使用 Character 排序层
+        }
+
+        // --- SkeletonAnimation 优化 ---
+        SkeletonAnimation[] skeletons = go.GetComponentsInChildren<SkeletonAnimation>(true);
+        for (int i = 0; i < skeletons.Length; i++)
+        {
+            SkeletonAnimation sa = skeletons[i];
+
+            // 关闭不需要的更新模式
+            sa.updateWhenInvisible = UpdateMode.Nothing;     // 不可见时完全停止更新
+        }
+
+        Debug.Log($"[SpinePrefabCreator] 已优化 {renderers.Length} 个 Renderer, {skeletons.Length} 个 SkeletonAnimation");
     }
 
     [MenuItem(k_MenuPath, validate = true)]

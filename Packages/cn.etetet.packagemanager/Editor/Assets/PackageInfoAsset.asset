@@ -21,10 +21,16 @@ MonoBehaviour:
     Version: 2.3.6
   - Name: cn.etetet.yiuireddot
     Version: 3.0.0
+  - Name: cn.etetet.yiuinumericconfig
+    Version: 
+  - Name: cn.etetet.yiuilubangen
+    Version: 
   - Name: cn.etetet.yiuiinvoke
     Version: 4.0.3
   - Name: cn.etetet.yiuieffect
     Version: 3.0.0
+  - Name: cn.etetet.yiuicodeanalysis
+    Version: 1.0.1
   - Name: cn.etetet.yiui
     Version: 
   - Name: cn.etetet.watcher
@@ -37,6 +43,8 @@ MonoBehaviour:
     Version: 3.0.0
   - Name: cn.etetet.sourcegenerator
     Version: 3.0.1
+  - Name: cn.etetet.sj
+    Version: 
   - Name: cn.etetet.referencecollector
     Version: 3.0.0
   - Name: cn.etetet.recast
@@ -71,6 +79,8 @@ MonoBehaviour:
     Version: 3.0.3
   - Name: cn.etetet.console
     Version: 3.0.0
+  - Name: cn.etetet.camera
+    Version: 
   - Name: cn.etetet.aoi
     Version: 3.0.0
   - Name: cn.etetet.ai
@@ -155,16 +165,36 @@ MonoBehaviour:
     Version: 1.0.1
   - Name: com.unity.ai.navigation
     Version: 2.0.12
+  - Name: com.esotericsoftware.spine.urp-shaders
+    Version: 
+  - Name: com.esotericsoftware.spine.spine-unity
+    Version: 
+  - Name: com.esotericsoftware.spine.spine-csharp
+    Version: 
+  - Name: com.coplaydev.unity-mcp
+    Version: 
   - Name: cn.etetet.yiuiyooassets
     Version: 3.1.0
   - Name: cn.etetet.yiuitips
     Version: 3.0.3
+  - Name: cn.etetet.yiuisuperscrolldemo
+    Version: 0.0.2
+  - Name: cn.etetet.yiuisuperscroll
+    Version: 0.0.1
   - Name: cn.etetet.yiuistatesync
     Version: 3.0.2
+  - Name: cn.etetet.yiuinumeric
+    Version: 4.0.8
+  - Name: cn.etetet.yiuiluban
+    Version: 3.0.9
   - Name: cn.etetet.yiuiloopscrollrectasync
     Version: 3.0.3
+  - Name: cn.etetet.yiuilocalizationpro
+    Version: 3.0.5
   - Name: cn.etetet.yiuigm
     Version: 3.0.4
+  - Name: cn.etetet.yiuigameobjectpool
+    Version: 2.0.2
   - Name: cn.etetet.yiuiframework
     Version: 3.1.4
   - Name: cn.etetet.yiui3ddisplay
@@ -174,5 +204,5 @@ MonoBehaviour:
   - Name: cn.etetet.router
     Version: 3.0.1
   BanPackageInfo: []
-  LastUpdateTime: 1774369522
+  LastUpdateTime: 1774582824
   UpdateInterval: 3600

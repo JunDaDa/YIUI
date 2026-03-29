@@ -22,7 +22,8 @@ namespace ET.Client
                 self.AllCommandInfo = new Dictionary<int, List<GMCommandInfo>>();
                 GMKeyHelper.GetKeys();
                 self.Init();
-                self.YIUIRoot().OpenPanelAsync<GMPanelComponent>().NoContext();
+                // GM 面板不再自动打开，按 Escape 键手动唤出
+                // self.YIUIRoot().OpenPanelAsync<GMPanelComponent>().NoContext();
             }
         }
 

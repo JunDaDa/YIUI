@@ -59,16 +59,30 @@ namespace ET.Client
             }
 
             cameraFollow.OffsetX = GetFloat(cfg, "CameraOffsetX");
-            cameraFollow.OffsetY = GetFloat(cfg, "CameraOffsetY", 4f);
-            cameraFollow.OffsetZ = GetFloat(cfg, "CameraOffsetZ", -4f);
+            cameraFollow.OffsetY = GetFloat(cfg, "CameraOffsetY", 7f);
+            cameraFollow.OffsetZ = GetFloat(cfg, "CameraOffsetZ", -6f);
             cameraFollow.SmoothTime = GetFloat(cfg, "CameraSmoothTime", 0.15f);
             cameraFollow.ZoomSpeed = GetFloat(cfg, "CameraZoomSpeed", 5f);
-            cameraFollow.MinZoom = GetFloat(cfg, "CameraMinZoom", 15f);
-            cameraFollow.MaxZoom = GetFloat(cfg, "CameraMaxZoom", 60f);
 
-            if (self.MainCamera != null)
+            // 正交模式参数
+            float orthoSize = GetFloat(cfg, "CameraOrthoSize", 5f);
+            float minZoom = GetFloat(cfg, "CameraMinZoom", 2f);
+            float maxZoom = GetFloat(cfg, "CameraMaxZoom", 15f);
+            bool useOrtho = GetFloat(cfg, "CameraOrthographic", 1f) > 0.5f;
+
+            if (useOrtho)
             {
-                self.MainCamera.fieldOfView = GetFloat(cfg, "CameraFOV", 60f);
+                cameraFollow.SetOrthographic(orthoSize, minZoom, maxZoom);
+                Log.Info($"[Camera] Orthographic mode: size={orthoSize}, zoom=[{minZoom},{maxZoom}]");
+            }
+            else
+            {
+                cameraFollow.MinZoom = minZoom;
+                cameraFollow.MaxZoom = maxZoom;
+                if (self.MainCamera != null)
+                {
+                    self.MainCamera.fieldOfView = GetFloat(cfg, "CameraFOV", 60f);
+                }
             }
 
             Log.Info($"[Camera] ApplyConfig OK: Offset=({cameraFollow.OffsetX},{cameraFollow.OffsetY},{cameraFollow.OffsetZ})");
@@ -82,7 +96,6 @@ namespace ET.Client
                 return param.Value;
             }
 
-            Log.Warning($"[Camera] GlobalParam key not found: {key}, using default={defaultValue}");
             return defaultValue;
         }
 

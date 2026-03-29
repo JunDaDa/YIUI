@@ -10,6 +10,10 @@ namespace ET.Client
         private static void Awake(this OperaComponent self)
         {
             self.mapMask = LayerMask.GetMask("Map");
+
+            // 缓存移动速度，避免每帧查配置表
+            var param = GlobalParamConfigCategory.Instance?.GetOrDefault("PlayerMoveSpeed");
+            self.MoveSpeed = param?.Value ?? 5f;
         }
 
         [EntitySystem]
@@ -29,16 +33,29 @@ namespace ET.Client
                 direction = math.normalize(new float3(x, 0f, z));
             }
 
+            // === 本地预测移动：每帧按方向移动 Transform，避免等服务器回包造成抖动 ===
+            if (self.IsDirectMoving && self.MyUnitTransform != null)
+            {
+                float3 delta = self.LastDirection * self.MoveSpeed * Time.deltaTime;
+                self.MyUnitTransform.position += (Vector3)delta;
+            }
+
             // Only send when direction changes (MOVE-07: avoid per-frame message creation)
             if (!direction.Equals(self.LastDirection))
             {
-                self.LastDirection = direction;
                 bool wasMoving = self.IsDirectMoving;
+                self.LastDirection = direction;
                 self.IsDirectMoving = math.lengthsq(direction) > 0.001f;
 
                 C2M_JoystickMove msg = C2M_JoystickMove.Create();
                 msg.Direction = direction;
                 self.Root().GetComponent<ClientSenderComponent>().Send(msg);
+
+                // 缓存本地玩家 Transform（首次或切换时）
+                if (self.MyUnitTransform == null)
+                {
+                    CacheMyUnitTransform(self);
+                }
 
                 // Spine animation & flip for local player
                 Unit myUnit = UnitHelper.GetMyUnitFromClientScene(self.Root());
@@ -47,10 +64,19 @@ namespace ET.Client
                     SpineComponent spineComponent = myUnit.GetComponent<SpineComponent>();
                     if (spineComponent != null)
                     {
-                        if (self.IsDirectMoving)
+                        // 仅在 idle↔run 状态切换时才切换动画，方向变化不打断
+                        if (self.IsDirectMoving && !wasMoving)
                         {
                             spineComponent.PlayByMotionType(MotionType.Run);
-                            // 角色默认朝左：D (right) → flip, A (left) → normal
+                        }
+                        else if (!self.IsDirectMoving && wasMoving)
+                        {
+                            spineComponent.PlayByMotionType(MotionType.Idle);
+                        }
+
+                        // 移动中更新朝向翻转
+                        if (self.IsDirectMoving)
+                        {
                             if (x > 0f)
                             {
                                 spineComponent.SetFlipX(true);
@@ -59,10 +85,6 @@ namespace ET.Client
                             {
                                 spineComponent.SetFlipX(false);
                             }
-                        }
-                        else
-                        {
-                            spineComponent.PlayByMotionType(MotionType.Idle);
                         }
                     }
                 }
@@ -112,6 +134,24 @@ namespace ET.Client
             {
                 C2M_TransferMap c2MTransferMap = C2M_TransferMap.Create();
                 self.Root().GetComponent<ClientSenderComponent>().Call(c2MTransferMap).NoContext();
+            }
+        }
+
+        /// <summary>
+        /// 缓存本地玩家的 Transform 引用，避免每帧 GetComponent
+        /// </summary>
+        private static void CacheMyUnitTransform(OperaComponent self)
+        {
+            Unit myUnit = UnitHelper.GetMyUnitFromClientScene(self.Root());
+            if (myUnit == null)
+            {
+                return;
+            }
+
+            GameObjectComponent goComp = myUnit.GetComponent<GameObjectComponent>();
+            if (goComp != null)
+            {
+                self.MyUnitTransform = goComp.Transform;
             }
         }
     }

@@ -25,10 +25,22 @@
   },
   {
     "Id": "CameraMinZoom",
-    "Value": 15
+    "Value": 2
   },
   {
     "Id": "CameraMaxZoom",
-    "Value": 60
+    "Value": 15
+  },
+  {
+    "Id": "CameraOrthographic",
+    "Value": 1
+  },
+  {
+    "Id": "CameraOrthoSize",
+    "Value": 5
+  },
+  {
+    "Id": "PlayerMoveSpeed",
+    "Value": 5
   }
 ]

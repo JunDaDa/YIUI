@@ -17,7 +17,8 @@ namespace ET.Server
                     unit.Position = new float3(-10, 0, -10);
 			
                     NumericDataComponent numericDataComponent = unit.AddComponent<NumericDataComponent>();
-                    numericDataComponent.Set(ENumericType.Speed1, 6f); // 速度是6米每秒
+                    float moveSpeed = GlobalParamConfigCategory.Instance.GetOrDefault("PlayerMoveSpeed")?.Value ?? 5f;
+                    numericDataComponent.Set(ENumericType.Speed1, moveSpeed);
                     numericDataComponent.Set(ENumericType.AOI1, 15f); // 视野15米
                     
                     unitComponent.Add(unit);

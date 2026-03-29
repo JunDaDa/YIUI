@@ -92,6 +92,18 @@ namespace ET.Server
         // 发送过去找不到actor不会重试,用此方法，你得保证actor提前注册好了location
         public static void Send(this MessageLocationSenderOneType self, long entityId, IMessage message)
         {
+            // 快速路径: ActorId已知时同步发送，避免async状态机和CoroutineLock的GC
+            if (self.Children.TryGetValue(entityId, out Entity entity))
+            {
+                MessageLocationSender sender = (MessageLocationSender)entity;
+                if (sender.ActorId != default)
+                {
+                    sender.LastSendOrRecvTime = TimeInfo.Instance.ServerNow();
+                    self.Root().GetComponent<MessageSender>().Send(sender.ActorId, message);
+                    return;
+                }
+            }
+
             self.SendInner(entityId, message).NoContext();
         }
         

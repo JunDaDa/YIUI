@@ -26,8 +26,9 @@ MonoBehaviour:
     probeSamplingDebugMesh: {fileID: 0}
     probeSamplingDebugTexture: {fileID: 0}
     probeVolumeBlendStatesCS: {fileID: 0}
-  m_RendererFeatures: []
-  m_RendererFeatureMap: 
+  m_RendererFeatures:
+  - {fileID: 8517377929227025421}
+  m_RendererFeatureMap: 0d3c548119ce3376
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   m_AssetVersion: 3
@@ -55,3 +56,23 @@ MonoBehaviour:
   m_DepthTextureFormat: 0
   m_AccurateGbufferNormals: 0
   m_IntermediateTextureMode: 0
+--- !u!114 &8517377929227025421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5089d17b599826f418df76ea501cf919, type: 3}
+  m_Name: OccludedCharacterFeature
+  m_EditorClassIdentifier: Rendering::OccludedCharacterFeature
+  m_Active: 1
+  settings:
+    renderEvent: 500
+    characterLayer:
+      serializedVersion: 2
+      m_Bits: 1024
+    overrideMaterial: {fileID: 2100000, guid: 74f68fc211b02da45b319f749153760a, type: 2}
+    stencilReference: 1
